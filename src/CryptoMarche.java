@@ -25,9 +25,6 @@ public class CryptoMarche {
      * @return capital en euros du propriétare.
      */
     public double capitalEnEuros(String proprietaire){
-        /**
-		FONCTION À IMPLEMENTER
-        **/
         double capital = 0.0;
         
         for(Portefeuille p : portefeuilles)
@@ -50,9 +47,6 @@ public class CryptoMarche {
      * @return capital total en circulation de la cryptomonnaie (en euros).
      */
     public double capitalMonnaie(Cryptomonnaie monnaie){
-        /**
-			FONCTION À IMPLEMENTER
-        **/
         double capital = 0.0;
         
         for(Portefeuille p : portefeuilles)
