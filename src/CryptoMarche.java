@@ -29,7 +29,7 @@ public class CryptoMarche {
         
         for(Portefeuille p : portefeuilles)
         {
-        	if(p.getProprietaire().equals(proprietaire)
+        	if(p.getProprietaire().equals(proprietaire))
         	{
         		capital += p.valeurEnEuros();
         	}
