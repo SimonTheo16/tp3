@@ -26,8 +26,9 @@ public class CryptoMarche {
      */
     public double capitalEnEuros(String proprietaire){
         /**
-			FONCTION À IMPLEMENTER
+		FONCTION À IMPLEMENTER
         **/
+        
 
         return 0;
     }
