@@ -47,18 +47,18 @@ public class CryptoMarche {
      * @return capital total en circulation de la cryptomonnaie (en euros).
      */
     public double capitalMonnaie(Cryptomonnaie monnaie){
-        double capital = 0.0;
-        
-        for(Portefeuille p : portefeuilles)
-        {
-        	if(p.getMonnaie() == monnaie)
-        	{
-        		capital += p.getMonnaie();
-        	}
-        }
-        
+    
+		double capital = 0.0;
 
-        return capital;
+		for(Portefeuille p : portefeuilles)
+		{
+		    if(p.getMonnaie().getNom().equals(monnaie.getNom()))
+		    {
+		        capital += p.valeurEnEuros();
+		    }
+		}
+
+		return capital;
 
     }
 
