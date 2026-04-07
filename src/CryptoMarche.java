@@ -1,74 +1,78 @@
 import java.util.ArrayList;
 
-public class CryptoMarche {
+public class CryptoMarche
+{
+	private ArrayList<Portefeuille> portefeuilles;
+	private static CryptoMarche marche;
 
-    private ArrayList<Portefeuille> portefeuilles;
-    private static CryptoMarche marche;
+	private CryptoMarche()
+	{
+		portefeuilles = new ArrayList<Portefeuille>();
+	}
 
-    private CryptoMarche(){
-        portefeuilles = new ArrayList<Portefeuille>();
-    }
-
-    public static CryptoMarche getInstance(){
-        if(marche == null){ marche = new CryptoMarche();}
+	public static CryptoMarche getInstance()
+	{
+		if(marche == null){ marche = new CryptoMarche();}
 		return marche;
-    }
+	}
 
-    public void ajouter(Portefeuille p){
-        portefeuilles.add(p);
-    }
+	public void ajouter(Portefeuille p)
+	{
+		portefeuilles.add(p);
+	}
 
-    /**
-     * Cette fonction recherche sur le marché tous les portefeuilles 
-     * du propriétaire et calcule son capital en euros. 
-     * @param proprietare
-     * @return capital en euros du propriétare.
-     */
-    public double capitalEnEuros(String proprietaire){
-        double capital = 0.0;
-        
-        for(Portefeuille p : portefeuilles)
-        {
-        	if(p.getProprietaire().equals(proprietaire))
-        	{
-        		capital += p.valeurEnEuros();
-        	}
-        }
-        
+	/**
+	* Cette fonction recherche sur le marché tous les portefeuilles 
+	* du propriétaire et calcule son capital en euros. 
+	* @param proprietare
+	* @return capital en euros du propriétare.
+	*/
+	public double capitalEnEuros(String proprietaire)
+	{
+		double capital = 0.0;
+		
+		for(Portefeuille p : portefeuilles)
+		{
+			if(p.getProprietaire().equals(proprietaire))
+			{
+				capital += p.valeurEnEuros();
+			}
+		}
 
-        return capital;
-    }
+		return capital;
+	}
 
-    /**
-     * Cette fonction recherche sur le marché tous les portefeuilles 
-     * d'un type de devise et calcule le volume total de capital de 
-     * cette devise sur le marché 
-     * @param monnaie
-     * @return capital total en circulation de la cryptomonnaie (en euros).
-     */
-    public double capitalMonnaie(Cryptomonnaie monnaie){
-    
+	/**
+	* Cette fonction recherche sur le marché tous les portefeuilles 
+	* d'un type de devise et calcule le volume total de capital de 
+	* cette devise sur le marché 
+	* @param monnaie
+	* @return capital total en circulation de la cryptomonnaie (en euros).
+	*/
+	public double capitalMonnaie(Cryptomonnaie monnaie)
+	{
 		double capital = 0.0;
 
 		for(Portefeuille p : portefeuilles)
 		{
-		    if(p.getMonnaie().getNom().equals(monnaie.getNom()))
-		    {
-		        capital += p.valeurEnEuros();
-		    }
+			if(p.getMonnaie().getNom().equals(monnaie.getNom()))
+			{
+				capital += p.valeurEnEuros();
+			}
 		}
 
 		return capital;
 
-    }
+	}
 
-    @Override
-    public String toString() {
-        String ret = "";
-        for(Portefeuille p : this.portefeuilles){
-            ret += p.toString() + "\n";
-        }
-        return ret;
-    }
+	@Override
+	public String toString()
+	{
+		String ret = "";
+		for(Portefeuille p : this.portefeuilles)
+			ret += p.toString() + "\n";
+		
+		return ret;
+	}
 
 }
